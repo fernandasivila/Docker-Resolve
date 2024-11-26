@@ -114,10 +114,10 @@ services:
       - mongo-cluster
 
   backend:
+    image: maxmartinez29/docker-resolve-backend:latest
     container_name: backend
-    build:
-      context: ./Backend
-      dockerfile: Dockerfile
+    labels:
+      - "com.centurylinklabs.watchtower.enable=true"
     ports:
       - "3000:3000"
     environment:
